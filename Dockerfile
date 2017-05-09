@@ -1,23 +1,24 @@
 FROM node:7.8.0
 
-# Install google-cloud-sdk
+# install google-cloud-sdk
 RUN wget -O google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-154.0.1-linux-x86_64.tar.gz
 RUN tar xf google-cloud-sdk.tar.gz && rm google-cloud-sdk.tar.gz
 RUN /google-cloud-sdk/install.sh
-RUN /google-cloud-sdk/bin/gcloud init
+#RUN /google-cloud-sdk/bin/gcloud init
 RUN /google-cloud-sdk/bin/gcloud --quiet components update
-RUN /google-cloud-sdk/bin/gcloud components install app-engine-go
+RUN /google-cloud-sdk/bin/gcloud --quiet components install app-engine-go
 ENV PATH="/google-cloud-sdk/bin:${PATH}"
-# awscli for deployment
 
+
+RUN apt-get update
+
+# awscli for deployment
 RUN apt-get install -y -qq awscli
 
 # flow
-
 RUN apt-get install -y -qq ocaml libelf-dev
 
 # xvfb for nightmare
-
 RUN apt-get install -y \
   xvfb \
   x11-xkb-utils \
