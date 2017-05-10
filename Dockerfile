@@ -14,7 +14,7 @@ RUN echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee 
 
 # awscli for deployment
 
-RUN apt-get install -y -qq awscli
+RUN apt-get install -y -qq awscli && aws configure set default.s3.signature_version s3v4
 
 # flow
 
