@@ -13,7 +13,7 @@ ENV PATH="/google-cloud-sdk/bin:${PATH}"
 RUN apt-get update
 
 # awscli for deployment
-RUN apt-get install -y -qq awscli
+RUN apt-get install -y -qq awscli && aws configure set default.s3.signature_version s3v4
 
 # flow
 RUN apt-get install -y -qq ocaml libelf-dev
