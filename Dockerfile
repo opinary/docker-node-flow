@@ -15,10 +15,11 @@ RUN apt-get update
 # awscli for deployment
 RUN apt-get install -y -qq awscli && aws configure set default.s3.signature_version s3v4
 
+# Sentry CLI
+RUN https://github.com/getsentry/sentry-cli
+
 # flow
 RUN apt-get install -y -qq ocaml libelf-dev
-
-RUN https://github.com/getsentry/sentry-cli
 
 # xvfb for nightmare
 RUN apt-get install -y \
