@@ -16,7 +16,7 @@ RUN apt-get update
 RUN apt-get install -y -qq awscli && aws configure set default.s3.signature_version s3v4
 
 # Sentry CLI
-RUN https://github.com/getsentry/sentry-cli
+RUN curl -sL https://sentry.io/get-cli/ | bash
 
 # flow
 RUN apt-get install -y -qq ocaml libelf-dev
