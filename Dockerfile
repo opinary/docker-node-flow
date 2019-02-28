@@ -18,6 +18,8 @@ RUN apt-get install -y -qq awscli && aws configure set default.s3.signature_vers
 # flow
 RUN apt-get install -y -qq ocaml libelf-dev
 
+RUN https://github.com/getsentry/sentry-cli
+
 # xvfb for nightmare
 RUN apt-get install -y \
   xvfb \
