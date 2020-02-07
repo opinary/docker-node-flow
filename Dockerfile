@@ -1,4 +1,4 @@
-FROM node:10.14.0
+FROM node:12.15.0
 
 # install google-cloud-sdk
 RUN wget -O google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-154.0.1-linux-x86_64.tar.gz
